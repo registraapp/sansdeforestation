@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Géolocalisation des parcelles EUDR : format et erreurs</title>
+<meta name="description" content="EUDR : point ou polygone, seuil de 4 ha, GeoJSON en WGS 84, six décimales, ordre longitude-latitude. Le format exact attendu par TRACES et les erreurs de rejet.">
+<link rel="canonical" href="https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Sans Déforestation">
+<meta property="og:title" content="Géolocalisation des parcelles EUDR : format et erreurs">
+<meta property="og:description" content="EUDR : point ou polygone, seuil de 4 ha, GeoJSON en WGS 84, six décimales, ordre longitude-latitude. Le format exact attendu par TRACES et les erreurs de rejet.">
+<meta property="og:url" content="https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/">
+<meta property="article:published_time" content="2026-11-04">
+<meta property="article:modified_time" content="2026-11-04">
+<meta name="author" content="Amine">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#EDE5D2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sable:#EDE5D2;--sable-d:#E3D8BF;--papier:#FBF8F0;--trait:#CDBF9E;
+    --vert:#1E4A34;--vert-f:#14321F;--vert-m:#3C6B50;--vert-l:#D6E2D4;
+    --ocre:#B8732C;--ocre-t:#8A4B12;--ocre-l:#F2DDC1;
+    --encre:#1C2620;--soft:#4A544C;--on-vert:#F3EEDF;--on-vert-soft:#C9D3C4;
+    --slab:"Zilla Slab",Rockwell,"Roboto Slab","DejaVu Serif",Georgia,serif;
+    --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --code:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--sable);color:var(--encre);font-family:var(--sans);font-size:17.5px;line-height:1.6;overflow-wrap:break-word}
+  a{color:var(--vert);text-decoration-color:var(--ocre);text-decoration-thickness:2px;text-underline-offset:3px}
+  a:hover{color:var(--ocre-t)}
+  :focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
+  img,svg{max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--slab);color:var(--vert-f);line-height:1.12;font-weight:700;margin-top:0}
+  h1{font-size:clamp(32px,3.9vw,46px);margin-bottom:20px}
+  h2{font-size:clamp(27px,3vw,36px);margin-bottom:14px}
+  h3{font-size:21px;margin-bottom:8px;font-weight:600;line-height:1.2}
+  p{margin:0 0 14px}
+  ul,ol{padding-left:22px;margin:0 0 14px}
+  li{margin-bottom:6px}
+  strong{font-weight:700}
+  .sub{color:var(--soft);max-width:68ch;font-size:18px}
+  .fine{font-size:14.5px;color:var(--soft)}
+
+  header.site{background:var(--sable);border-bottom:1px solid var(--trait)}
+  header.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 28px;padding-top:14px;padding-bottom:14px}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--slab);font-weight:700;font-size:25px;color:var(--vert-f);text-decoration:none;line-height:1}
+  .brand svg{width:34px;height:34px;flex:none}
+  .brand:hover{color:var(--vert-f)}
+  nav.mainnav{display:flex;flex-wrap:wrap;gap:2px 24px}
+  nav.mainnav a{text-decoration:none;font-weight:600;font-size:16px;color:var(--encre);padding:7px 0 4px;border-bottom:3px solid transparent}
+  nav.mainnav a:hover{border-bottom-color:var(--trait);color:var(--encre)}
+  nav.mainnav a[aria-current="page"]{border-bottom-color:var(--ocre);color:var(--vert-f)}
+
+  .btn{display:inline-block;background:var(--vert);color:var(--papier);border:2px solid var(--vert);padding:12px 22px;border-radius:4px;font-weight:700;font-size:16.5px;text-decoration:none;line-height:1.3;text-align:center;cursor:pointer;font-family:var(--sans)}
+  .btn:hover{background:var(--vert-f);border-color:var(--vert-f);color:var(--papier)}
+  .btn.ghost{background:transparent;color:var(--vert)}
+  .btn.ghost:hover{background:var(--vert-l);color:var(--vert-f)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px}
+
+  .hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:48px;align-items:center;padding:56px 0 64px}
+  .hero .lede{font-size:19px;max-width:60ch}
+  .hero .note{font-size:15px;color:var(--soft);margin-top:6px}
+  .map{margin:0}
+  .map svg{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 1px 0 var(--trait),0 18px 40px -24px rgba(20,50,31,.45)}
+  .map figcaption{font-size:14.5px;color:var(--soft);margin-top:10px}
+
+  .band{padding:68px 0}
+  .band.papier{background:var(--papier);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+  .band.vert{background:var(--vert-f);color:var(--on-vert)}
+  .band.vert h2,.band.vert h3{color:var(--on-vert)}
+  .band.vert a{color:var(--on-vert)}
+  .band.vert .sub{color:var(--on-vert-soft)}
+
+  /* Calendrier : vraie séquence datée */
+  ol.timeline{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;position:relative}
+  ol.timeline li{position:relative;padding:30px 16px 0 0;margin:0}
+  ol.timeline li::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--trait)}
+  ol.timeline li::after{content:"";position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--papier);border:3px solid var(--vert-m)}
+  ol.timeline li.key::after{background:var(--ocre);border-color:var(--ocre-t)}
+  ol.timeline time{display:block;font-family:var(--slab);font-weight:700;font-size:20px;color:var(--vert-f);line-height:1.15;margin-bottom:6px}
+  ol.timeline li.key time{color:var(--ocre-t)}
+  ol.timeline span{display:block;font-size:15px;color:var(--soft);line-height:1.45}
+
+  table.who{width:100%;border-collapse:collapse;margin:26px 0 10px;background:var(--papier);font-size:16px}
+  table.who th,table.who td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--trait)}
+  table.who thead th{font-family:var(--slab);font-size:18px;font-weight:600;color:var(--vert-f);background:var(--sable-d);border-bottom:2px solid var(--vert-m)}
+  table.who td:first-child{font-weight:700;color:var(--vert-f);width:24%}
+  table.who tr.out td{background:#F6EFE2}
+  table.who .tag{display:inline-block;font-size:13.5px;font-weight:700;color:var(--ocre-t);background:var(--ocre-l);padding:1px 8px;border-radius:3px;margin-bottom:4px}
+
+  /* Questionnaire */
+  .quizbox{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;margin-top:28px;align-items:start}
+  .quiz fieldset{border:0;border-top:1px solid var(--trait);margin:0;padding:18px 0 20px}
+  .quiz legend{font-weight:700;font-size:17.5px;padding:0;margin-bottom:10px;color:var(--vert-f);float:left;width:100%}
+  .quiz legend small{display:block;font-weight:400;font-size:14.5px;color:var(--soft);margin-top:2px}
+  .quiz .opts{clear:both;display:flex;flex-wrap:wrap;gap:8px}
+  .quiz label{display:inline-flex;align-items:flex-start;gap:8px;border:1.5px solid var(--trait);background:var(--papier);border-radius:4px;padding:8px 13px;font-size:15.5px;cursor:pointer;line-height:1.35;max-width:100%}
+  .quiz label:hover{border-color:var(--vert-m)}
+  .quiz input{accent-color:var(--vert);margin:3px 0 0;flex:none}
+  .quiz label:has(input:checked){border-color:var(--vert);background:var(--vert-l)}
+  .quiz label:has(input:focus-visible){outline:3px solid var(--ocre);outline-offset:2px}
+  .result{position:sticky;top:20px;background:var(--papier);border:1px solid var(--trait);border-top:5px solid var(--vert-m);padding:22px 24px;border-radius:4px}
+  .result.alert{border-top-color:var(--ocre)}
+  .result h3{font-size:23px}
+  .result .progress{height:6px;background:var(--sable-d);border-radius:3px;overflow:hidden;margin:6px 0 14px}
+  .result .progress i{display:block;height:100%;background:var(--vert-m);width:0;transition:width .25s}
+  .result dl{margin:0 0 12px}
+  .result dt{font-size:14px;color:var(--soft);margin-top:8px}
+  .result dd{margin:0;font-weight:700;color:var(--vert-f)}
+  .result ul{font-size:15.5px}
+
+  /* Tarifs */
+  .tarifs{margin:28px 0 0;border-top:2px solid var(--vert-f)}
+  .tarif{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) 190px;gap:28px;padding:26px 0;border-bottom:1px solid var(--trait);align-items:start}
+  .tarif h3{margin:0}
+  .tarif .who-for{font-size:15px;color:var(--soft);margin:6px 0 0}
+  .tarif ul{margin:0;font-size:16px}
+  .tarif p{font-size:16px}
+  .tarif .prix{font-family:var(--slab);font-weight:700;font-size:30px;color:var(--vert-f);line-height:1.05;text-align:right}
+  .tarif .prix small{display:block;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--soft);margin-top:4px}
+  .tarif.main{background:linear-gradient(90deg,var(--ocre-l),transparent 70%);padding-left:18px;border-left:5px solid var(--ocre)}
+  .tarif .btn{margin-top:12px;font-size:15px;padding:9px 16px}
+
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 36px}
+  ol.steps li{counter-increment:s;margin:0;padding-top:4px;position:relative;padding-left:52px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;border:2px solid var(--ocre);color:var(--ocre-t);font-family:var(--slab);font-weight:700;font-size:20px;display:grid;place-items:center}
+  ol.steps h3{font-size:19px}
+  ol.steps p{font-size:16px;color:var(--soft);margin:0}
+
+  .statut{border:1px solid var(--trait);border-left:5px solid var(--ocre);background:var(--papier);padding:20px 24px;border-radius:0 4px 4px 0;max-width:820px}
+  .statut h3{font-size:20px}
+  .statut p{font-size:16px;margin-bottom:8px}
+  .statut p:last-child{margin-bottom:0}
+
+  .related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:22px 0 0}
+  .related a{display:block;text-decoration:none;color:var(--encre);background:var(--papier);border:1px solid var(--trait);border-top:4px solid var(--vert-m);padding:18px 20px 20px;border-radius:2px}
+  .related a:hover{border-top-color:var(--ocre)}
+  .related strong{display:block;font-family:var(--slab);font-size:20px;font-weight:700;color:var(--vert-f);line-height:1.2;margin-bottom:6px}
+  .related span{font-size:15px;color:var(--soft)}
+
+  .faq{max-width:820px;margin-top:18px}
+  .faq details{border-bottom:1px solid var(--trait);padding:15px 0}
+  .faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px;color:var(--vert-f)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;color:var(--ocre-t)}
+  .faq details[open] summary::after{content:"\2212"}
+  .faq details p{margin:10px 0 0;color:var(--soft)}
+
+  .contact-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:36px;margin-top:24px;align-items:start}
+  form.contact{background:var(--papier);border:1px solid var(--trait);padding:26px;border-radius:4px}
+  form.contact label{display:block;font-weight:600;font-size:15.5px;margin:14px 0 5px}
+  form.contact label:first-of-type{margin-top:0}
+  form.contact input,form.contact select,form.contact textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid #A99A78;border-radius:4px;background:#fff;color:var(--encre)}
+  form.contact .btn{margin-top:18px}
+  .thanks{display:none;background:var(--vert-l);border:1px solid var(--vert-m);padding:22px;border-radius:4px}
+  .booking{border:1px solid var(--trait);padding:22px;border-radius:4px;background:var(--sable-d)}
+  .booking h3{font-size:20px}
+  .booking p{font-size:16px}
+
+  .crumb{font-size:14.5px;color:var(--soft);padding-top:22px}
+  .crumb ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:4px 0}
+  .crumb li{margin:0}
+  .crumb li+li::before{content:"/";margin:0 9px;color:var(--trait)}
+  .crumb a{color:var(--soft)}
+
+  article.guide{max-width:740px;padding:18px 0 40px}
+  article.guide h1{font-size:clamp(32px,4vw,46px)}
+  article.guide .meta{color:var(--soft);font-size:15px;margin-bottom:26px}
+  article.guide h2{font-size:clamp(24px,2.6vw,30px);margin-top:40px}
+  article.guide h3{margin-top:26px}
+  article.guide p,article.guide li{font-size:18px}
+  article.guide .intro{font-size:20px;color:var(--encre)}
+  article.guide table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:16px;background:var(--papier)}
+  article.guide th,article.guide td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--trait)}
+  article.guide thead th{background:var(--sable-d);font-weight:700;color:var(--vert-f)}
+  pre{background:var(--vert-f);color:#E9EFE4;padding:18px 20px;border-radius:4px;overflow-x:auto;font-family:var(--code);font-size:14.5px;line-height:1.5;margin:16px 0 22px}
+  code{font-family:var(--code);font-size:.9em;background:var(--sable-d);padding:1px 5px;border-radius:3px}
+  pre code{background:none;padding:0;font-size:inherit}
+  .cta-box{background:var(--vert-f);color:var(--on-vert);padding:26px 28px;border-radius:4px;margin:36px 0}
+  .cta-box h2{color:var(--on-vert);margin-top:0;font-size:26px}
+  .cta-box p{font-size:17px}
+  .cta-box .btn{background:var(--papier);color:var(--vert-f);border-color:var(--papier)}
+  .cta-box .btn.ghost{background:transparent;color:var(--on-vert);border-color:var(--on-vert-soft)}
+  .sources{font-size:15.5px;color:var(--soft);border-top:1px solid var(--trait);padding-top:14px;margin-top:30px}
+  .sources li{font-size:15.5px}
+
+  .bloglist{list-style:none;padding:0;margin:26px 0 0;max-width:820px}
+  .bloglist li{border-top:1px solid var(--trait);padding:24px 0;margin:0}
+  .bloglist h2{font-size:26px;margin-bottom:8px}
+  .bloglist h2 a{text-decoration:none;color:var(--vert-f)}
+  .bloglist h2 a:hover{text-decoration:underline;text-decoration-color:var(--ocre)}
+
+  footer.site{background:var(--vert-f);color:var(--on-vert-soft);padding:44px 0 36px;font-size:15px}
+  footer.site .cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:30px}
+  footer.site strong{color:var(--on-vert);font-family:var(--slab);font-size:19px}
+  footer.site a{color:var(--on-vert);text-decoration-color:var(--ocre)}
+  footer.site ul{list-style:none;padding:0;margin:8px 0 0}
+  footer.site li{margin-bottom:6px}
+  footer.site .legal{border-top:1px solid #2C4C38;margin-top:26px;padding-top:16px;font-size:14px}
+
+  @media (max-width:960px){
+    .hero{grid-template-columns:minmax(0,1fr);gap:30px;padding:36px 0 48px}
+    .quizbox,.contact-grid{grid-template-columns:minmax(0,1fr)}
+    .result{position:static}
+    ol.timeline{grid-template-columns:minmax(0,1fr);gap:0;margin-left:4px}
+    ol.timeline li{padding:0 0 20px 32px}
+    ol.timeline li::before{top:10px;bottom:-10px;left:6px;right:auto;width:2px;height:auto}
+    ol.timeline li:last-child::before{display:none}
+    ol.timeline li::after{top:4px}
+    ol.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .tarif{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:14px 24px}
+    .tarif .prix{grid-column:1;grid-row:2;text-align:left}
+    .related{grid-template-columns:minmax(0,1fr)}
+    footer.site .cols{grid-template-columns:minmax(0,1fr)}
+  }
+  @media (max-width:640px){
+    body{font-size:17px}
+    .wrap{padding:0 16px}
+    header.site .wrap{gap:8px 18px}
+    nav.mainnav{gap:2px 14px}
+    nav.mainnav a{font-size:15px}
+    .band{padding:48px 0}
+    .actions .btn{width:100%}
+    ol.steps{grid-template-columns:minmax(0,1fr)}
+    .tarif{grid-template-columns:minmax(0,1fr);gap:10px}
+    .tarif .prix{grid-row:auto}
+    .tarif.main{padding-left:14px}
+    form.contact{padding:18px}
+    table.who thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    table.who tr{display:block;border-bottom:1px solid var(--trait);padding:8px 0}
+    table.who td{display:block;border:0;padding:4px 14px;width:auto!important}
+    table.who td::before{content:attr(data-label);display:block;font-size:13px;font-weight:600;color:var(--soft)}
+    article.guide p,article.guide li{font-size:17px}
+    article.guide table{display:block;overflow-x:auto}
+    .cta-box{padding:22px 18px}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://sansdeforestation.fr/#org", "name": "Sans Déforestation", "url": "https://sansdeforestation.fr/", "logo": "https://sansdeforestation.fr/favicon.svg", "founder": {"@type": "Person", "name": "Amine", "jobTitle": "Ingénieur indépendant, données et systèmes d'information"}, "areaServed": [{"@type": "Country", "name": "France"}, {"@type": "Country", "name": "Côte d'Ivoire"}, {"@type": "Country", "name": "Cameroun"}, {"@type": "Country", "name": "Gabon"}, {"@type": "Country", "name": "République du Congo"}]}, {"@type": "WebSite", "@id": "https://sansdeforestation.fr/#site", "url": "https://sansdeforestation.fr/", "name": "Sans Déforestation", "inLanguage": "fr-FR", "publisher": {"@id": "https://sansdeforestation.fr/#org"}}, {"@type": "WebPage", "@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/", "url": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/", "name": "Géolocalisation des parcelles EUDR : format et erreurs", "description": "EUDR : point ou polygone, seuil de 4 ha, GeoJSON en WGS 84, six décimales, ordre longitude-latitude. Le format exact attendu par TRACES et les erreurs de rejet.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://sansdeforestation.fr/#site"}, "breadcrumb": {"@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/#breadcrumb"}, "about": {"@id": "https://sansdeforestation.fr/#service"}}, {"@type": "Article", "@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/#article", "headline": "Géolocalisation des parcelles : format, précision, erreurs fréquentes", "description": "EUDR : point ou polygone, seuil de 4 ha, GeoJSON en WGS 84, six décimales, ordre longitude-latitude. Le format exact attendu par TRACES et les erreurs de rejet.", "inLanguage": "fr-FR", "datePublished": "2026-11-04", "dateModified": "2026-11-04", "author": {"@type": "Person", "name": "Amine"}, "publisher": {"@id": "https://sansdeforestation.fr/#org"}, "mainEntityOfPage": {"@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/"}, "url": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/"}, {"@type": "Service", "@id": "https://sansdeforestation.fr/#service", "name": "Mise en conformité avec le règlement européen sur la déforestation (EUDR)", "serviceType": "Conformité réglementaire EUDR", "provider": {"@id": "https://sansdeforestation.fr/#org"}, "areaServed": [{"@type": "Country", "name": "France"}, {"@type": "Country", "name": "Côte d'Ivoire"}, {"@type": "Country", "name": "Cameroun"}, {"@type": "Country", "name": "Gabon"}, {"@type": "Country", "name": "République du Congo"}], "url": "https://sansdeforestation.fr/", "offers": [{"@type": "Offer", "name": "Diagnostic écrit gratuit", "description": "Produits et codes NC concernés, statut (opérateur, aval, négociant, PME) et actions à mener avant le 30 décembre 2026, sous 3 jours ouvrés", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "0", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Mise en conformité EUDR", "description": "Cartographie des fournisseurs, collecte et contrôle des géolocalisations, évaluation et atténuation du risque, procédure de diligence écrite, inscription dans TRACES, premières déclarations", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "1900", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "1900", "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Suivi mensuel", "description": "Dépôt des déclarations de diligence raisonnée et mise à jour du dispositif", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "390", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "390", "priceCurrency": "EUR", "valueAddedTaxIncluded": false, "unitText": "mois", "billingDuration": "P1M"}}, {"@type": "Offer", "name": "Pack géolocalisation pour coopératives et exportateurs", "description": "Collecte terrain par formulaire mobile, nettoyage des polygones, fichier GeoJSON prêt pour l'acheteur. Sur devis", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/exportateurs/#contact"}]}, {"@type": "BreadcrumbList", "@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://sansdeforestation.fr/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sansdeforestation.fr/blog/"}, {"@type": "ListItem", "position": 3, "name": "Géolocalisation des parcelles", "item": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/"}]}, {"@type": "FAQPage", "@id": "https://sansdeforestation.fr/blog/geolocalisation-parcelles-eudr/#faq", "mainEntity": [{"@type": "Question", "name": "Peut-on regrouper plusieurs parcelles dans un seul polygone ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Chaque parcelle est décrite séparément. Un polygone qui englobe plusieurs parcelles, avec les chemins et les zones non cultivées entre elles, fausse la surface et peut inclure une zone déboisée après 2020 qui n'a rien à voir avec votre production."}}, {"@type": "Question", "name": "Que faire si une parcelle a un trou (une zone non cultivée au milieu) ?", "acceptedAnswer": {"@type": "Answer", "text": "Le système d'information ne traite pas les trous : seul le contour extérieur est pris en compte. La documentation de la Commission conseille de découper la parcelle en deux demi-formes qui contournent la zone exclue."}}, {"@type": "Question", "name": "Faut-il donner l'adresse du producteur ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas en principe : on demande la localisation de la parcelle, pas de l'habitation. Seuls les micro et petits opérateurs primaires établis dans un pays à faible risque peuvent remplacer les coordonnées par une adresse postale, si elle correspond clairement à l'emplacement."}}]}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="10" fill="#1E4A34"/><path d="M13 40 26 15 47 21 52 42 30 51Z" fill="#E7B47A" stroke="#FBF8F0" stroke-width="3" stroke-linejoin="round"/><circle cx="31" cy="33" r="5.5" fill="#1E4A34"/></svg>Sans Déforestation</a>
+  <nav class="mainnav" aria-label="Navigation principale"><a href="/">Importateurs</a><a href="/exportateurs/">Exportateurs</a><a href="/blog/" aria-current="page">Guides</a><a href="/#contact">Contact</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumb" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/blog/">Guides</a></li><li aria-current="page">Géolocalisation des parcelles</li></ol></nav>
+<article class="guide">
+<h1>Géolocalisation des parcelles&nbsp;: format, précision, erreurs fréquentes</h1>
+<p class="meta">Par Amine, le <time datetime="2026-11-04">4&nbsp;novembre&nbsp;2026</time>. À jour du règlement délégué (UE) 2026/2102.</p>
+<div class="content">
+
+<p class="intro">La géolocalisation est la pièce la plus difficile à réunir pour une déclaration de diligence raisonnée. Elle vient du terrain, souvent de milliers de petits producteurs, et le système d'information de l'UE rejette les fichiers mal formés. Voici ce que dit le règlement, le format exact attendu, et les erreurs qui reviennent le plus souvent.</p>
+
+<h2>Ce que dit le règlement</h2>
+<p>Le <a href="https://eur-lex.europa.eu/eli/reg/2023/1115/oj">règlement (UE) 2023/1115</a> définit la «&nbsp;parcelle&nbsp;» comme un terrain situé dans une même propriété, reconnu par le droit du pays de production, dont les conditions sont assez homogènes pour évaluer le risque de déforestation. La «&nbsp;géolocalisation&nbsp;» est l'emplacement de cette parcelle décrit par des coordonnées de latitude et de longitude comportant <strong>au moins six décimales</strong>.</p>
+<p>Le format dépend de la surface&nbsp;:</p>
+<ul>
+<li><strong>4 hectares ou moins</strong> : un seul point suffit&nbsp;;</li>
+<li><strong>plus de 4 hectares</strong> : un polygone, c'est-à-dire assez de points pour décrire tout le périmètre&nbsp;;</li>
+<li><strong>bovins</strong> : la règle du polygone ne s'applique pas&nbsp;; on géolocalise tous les établissements où les animaux ont été élevés.</li>
+</ul>
+<p>Le point est un minimum. Beaucoup d'acheteurs demandent des polygones pour toutes les parcelles, parce qu'un point ne permet pas de vérifier qu'aucune partie de la parcelle n'a été déboisée après le 31&nbsp;décembre&nbsp;2020. Posez la question à vos clients avant de lancer une collecte, pour ne pas devoir repasser.</p>
+
+<h2>Le format attendu&nbsp;: GeoJSON</h2>
+<p>Le système d'information accepte la géolocalisation sous forme de fichier GeoJSON. La <a href="https://eudr.webcloud.ec.europa.eu/tracesnt/help/eudr-documentation/operator/geojson-description.html">description officielle du fichier</a>, publiée par la Commission dans l'aide de TRACES, fixe les règles suivantes&nbsp;:</p>
+<ul>
+<li>système de coordonnées <strong>WGS 84 (EPSG:4326)</strong>, en degrés décimaux&nbsp;; toute autre projection doit être convertie avant le dépôt&nbsp;;</li>
+<li>ordre des coordonnées&nbsp;: <strong>longitude d'abord, latitude ensuite</strong>. C'est l'inverse de l'habitude «&nbsp;latitude, longitude&nbsp;» des GPS et des cartes&nbsp;;</li>
+<li>géométries acceptées&nbsp;: <code>Point</code>, <code>MultiPoint</code>, <code>Polygon</code> et <code>MultiPolygon</code>, placées dans des objets <code>Feature</code> et une <code>FeatureCollection</code>. Les lignes (<code>LineString</code>) sont refusées&nbsp;;</li>
+<li>propriétés reconnues&nbsp;: <code>ProducerName</code>, <code>ProducerCountry</code> (code pays ISO à deux lettres), <code>ProductionPlace</code> et, pour un point, <code>Area</code> en hectares. Sans <code>Area</code>, un point est réputé couvrir 4 ha. Les noms de propriétés respectent la casse.</li>
+</ul>
+<p>Exemple illustratif d'une parcelle décrite par un polygone&nbsp;:</p>
+<pre><code>{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "ProducerName": "Producteur 0412",
+      "ProducerCountry": "CI",
+      "ProductionPlace": "P-0412-2"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-5.412318, 6.873540],
+        [-5.410702, 6.874121],
+        [-5.409915, 6.872266],
+        [-5.411804, 6.871530],
+        [-5.412318, 6.873540]
+      ]]
+    }
+  }]
+}</code></pre>
+<p>Notez que le premier et le dernier point sont identiques&nbsp;: c'est ce qui ferme le polygone.</p>
+
+<h2>La précision&nbsp;: six décimales, mais pas plus de fausse précision</h2>
+<p>Six décimales de degré représentent environ 11 centimètres à l'équateur. Le système tronque les coordonnées à six décimales avant de les enregistrer&nbsp;: en fournir davantage ne sert à rien et peut même, rarement, rendre invalide une géométrie valide, lorsque deux sommets très proches deviennent identiques après l'arrondi.</p>
+<p>La précision réelle, elle, dépend de l'appareil et du terrain. Un smartphone récent donne en général quelques mètres en terrain dégagé, nettement moins bien sous un couvert dense, comme une cacaoyère ombragée ou une forêt. Le règlement n'impose aucun appareil. Ce qui compte est que le contour soit plausible&nbsp;: surface cohérente avec la surface déclarée par le producteur, parcelle dans le bon pays, pas de chevauchement important avec la parcelle voisine.</p>
+<p>Trois réglages simples améliorent nettement la qualité d'une collecte&nbsp;: attendre que le signal se stabilise avant le premier point, marcher le contour à vitesse régulière, et enregistrer la précision annoncée par le téléphone à chaque relevé, pour repérer les parcelles à refaire.</p>
+
+<h2>Les erreurs qui font rejeter un fichier</h2>
+<p>La documentation de la Commission liste les erreurs de validation. Celles que l'on rencontre le plus sur des données de terrain&nbsp;:</p>
+<table>
+<thead><tr><th>Erreur</th><th>Cause habituelle</th><th>Correction</th></tr></thead>
+<tbody>
+<tr><td>Polygone non fermé</td><td>Le relevé s'arrête avant de revenir au point de départ</td><td>Ajouter le premier point à la fin</td></tr>
+<tr><td>Contour qui se croise</td><td>Points pris dans le désordre, en «&nbsp;huit&nbsp;»</td><td>Réordonner les sommets ou refaire le relevé</td></tr>
+<tr><td>Points en double</td><td>Deux relevés au même endroit, ou doublons créés par l'arrondi</td><td>Supprimer les doublons</td></tr>
+<tr><td>Coordonnées inversées</td><td>Latitude placée avant la longitude</td><td>Inverser&nbsp;: la parcelle tombe sinon dans un autre pays, ou en mer</td></tr>
+<tr><td>Polygone à trou</td><td>Zone non cultivée au milieu de la parcelle</td><td>Découper en deux formes&nbsp;; les trous sont ignorés</td></tr>
+<tr><td>Surface en texte</td><td><code>"Area": "3"</code> au lieu de <code>3</code></td><td>Donner un nombre&nbsp;: une surface en texte est lue comme 0</td></tr>
+<tr><td>Mauvais format de fichier</td><td>PDF, tableur, fichier protégé par mot de passe</td><td>Exporter en GeoJSON</td></tr>
+<tr><td>Ligne au lieu d'un polygone</td><td>Trace GPS exportée telle quelle</td><td>Convertir la trace en polygone fermé</td></tr>
+</tbody>
+</table>
+<p>Deux erreurs ne sont pas des erreurs de format mais posent problème à l'acheteur&nbsp;: un polygone qui englobe plusieurs parcelles, ce que la Commission n'admet pas, et un contour trop large qui déborde sur une zone boisée en 2020. Dans les deux cas, le fichier passe la validation technique mais l'évaluation du risque échoue.</p>
+
+<h2>Vérifier l'absence de déforestation</h2>
+<p>Le système d'information contrôle la forme du fichier, pas l'histoire de la parcelle. C'est à l'opérateur de s'assurer que la parcelle n'a pas été déboisée après le 31&nbsp;décembre&nbsp;2020. L'Observatoire de l'UE sur la déforestation publie une carte de couverture forestière à fin 2020, que la Commission présente comme un outil d'appui, ni obligatoire ni suffisant à lui seul. Une parcelle qui recoupe une zone boisée sur cette carte doit faire l'objet de vérifications complémentaires&nbsp;: images satellites, documents fonciers, historique de plantation.</p>
+
+<h2>Organiser une collecte qui tient</h2>
+<ul>
+<li>Un <strong>identifiant stable par parcelle</strong>, distinct de celui du producteur&nbsp;: un producteur a souvent plusieurs parcelles, et les lots doivent pouvoir être reliés aux parcelles.</li>
+<li>Un <strong>formulaire hors ligne</strong> sur smartphone, plutôt que des fichiers envoyés par messagerie&nbsp;: les données arrivent au même format, avec la date et la précision du relevé.</li>
+<li>Un <strong>contrôle au fil de l'eau</strong>, pas à la fin&nbsp;: une parcelle à refaire se refait mieux pendant que l'équipe est encore dans la zone.</li>
+<li>Une attention aux <strong>données personnelles</strong> : noms de producteurs et positions sont des données sensibles. Un identifiant suffit souvent dans le fichier remis à l'acheteur.</li>
+</ul>
+
+</div>
+<div class="cta-box">
+<h2>Votre cas en 3 jours ouvrés</h2>
+<p>Le diagnostic gratuit établit vos codes NC concernés, votre statut et ce qu'il faut faire avant le 30&nbsp;décembre. Par écrit, sans engagement.</p>
+<div class="actions"><a class="btn" href="/#contact">Demander le diagnostic gratuit</a><a class="btn ghost" href="/#contact" data-booking>Prendre rendez-vous (30 min)</a></div>
+</div>
+<section class="faqwrap" id="faq"><h2>Questions fréquentes</h2><div class="faq">
+<details><summary>Peut-on regrouper plusieurs parcelles dans un seul polygone&nbsp;?</summary><p>Non. Chaque parcelle est décrite séparément. Un polygone qui englobe plusieurs parcelles, avec les chemins et les zones non cultivées entre elles, fausse la surface et peut inclure une zone déboisée après 2020 qui n'a rien à voir avec votre production.</p></details>
+<details><summary>Que faire si une parcelle a un trou (une zone non cultivée au milieu)&nbsp;?</summary><p>Le système d'information ne traite pas les trous&nbsp;: seul le contour extérieur est pris en compte. La documentation de la Commission conseille de découper la parcelle en deux demi-formes qui contournent la zone exclue.</p></details>
+<details><summary>Faut-il donner l&#x27;adresse du producteur&nbsp;?</summary><p>Pas en principe&nbsp;: on demande la localisation de la parcelle, pas de l'habitation. Seuls les micro et petits opérateurs primaires établis dans un pays à faible risque peuvent remplacer les coordonnées par une adresse postale, si elle correspond clairement à l'emplacement.</p></details>
+</div></section>
+
+<div class="sources"><p><strong>Sources</strong></p><ul>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2023/1115/oj">Règlement (UE) 2023/1115 (EUR-Lex)</a></li>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2025/2650/oj">Règlement (UE) 2025/2650 (EUR-Lex)</a></li>
+<li><a href="https://eur-lex.europa.eu/eli/reg_del/2026/2102/oj">Règlement délégué (UE) 2026/2102 (EUR-Lex)</a></li>
+<li><a href="https://ec.europa.eu/newsroom/env/items/948164">Commission européenne, actes délégué et d'exécution du 13&nbsp;juillet&nbsp;2026</a></li>
+<li><a href="https://eudr.webcloud.ec.europa.eu/tracesnt/help/eudr-documentation/operator/geojson-description.html">Commission européenne, description du fichier GeoJSON (aide TRACES)</a></li>
+<li><a href="https://www.douane.gouv.fr/demarche/attester-de-la-conformite-de-ses-produits-avant-le-passage-frontieres-rdue">Douane française, démarche RDUE</a></li>
+<li><a href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en">Commission européenne, page du règlement sur la déforestation</a></li>
+</ul></div>
+<h2 style="margin-top:40px">Articles liés</h2>
+<div class="related" style="grid-template-columns:repeat(2,minmax(0,1fr))"><a href="/blog/eudr-30-decembre-2026/"><strong>EUDR 2026&nbsp;: ce qui change au 30&nbsp;décembre</strong><span>Les dates d'application, les simplifications adoptées fin 2025, les produits retirés et ajoutés en septembre&nbsp;2026, le système d'information et les sanctions.</span></a><a href="/blog/operateur-negociant-aval-eudr/"><strong>Opérateur, négociant ou aval&nbsp;: qui dépose la déclaration après la simplification</strong><span>Les rôles redéfinis par le règlement (UE) 2025/2650, des exemples par métier, et qui doit conserver quels numéros de référence.</span></a></div>
+</article>
+</main>
+<footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>Sans Déforestation</strong>
+<p>Mise en conformité avec le règlement européen sur la déforestation (EUDR, règlement (UE) 2023/1115 modifié), à prix fixe, pour les importateurs et négociants français et pour leurs fournisseurs d'Afrique francophone. Conduit par Amine, ingénieur indépendant (données et systèmes d'information).</p></div>
+<div><strong>Offres</strong>
+<ul><li><a href="/">Importateurs et négociants</a></li><li><a href="/exportateurs/">Coopératives et exportateurs</a></li><li><a href="/#tarifs">Tarifs</a></li><li><a href="/#contact">Diagnostic gratuit</a></li></ul></div>
+<div><strong>Guides</strong>
+<ul><li><a href="/blog/eudr-30-decembre-2026/">EUDR 2026&nbsp;: ce qui change au 30&nbsp;décembre</a></li><li><a href="/blog/geolocalisation-parcelles-eudr/">Géolocalisation des parcelles</a></li><li><a href="/blog/operateur-negociant-aval-eudr/">Opérateur, négociant ou aval</a></li></ul></div>
+</div>
+<p class="legal">Sans Déforestation n'est ni un cabinet d'avocats, ni un organisme de certification, ni une autorité compétente, et n'est affilié ni à la Commission européenne ni à l'administration française. TRACES est le système d'information de la Commission européenne. Tous les prix sont fixes et hors taxes.</p>
+</div></footer>
+</body>
+</html>

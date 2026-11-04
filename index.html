@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mise en conformité EUDR à prix fixe | Sans Déforestation</title>
+<meta name="description" content="Règlement déforestation (EUDR) : diagnostic gratuit sous 3 jours, mise en conformité à 1 900 € HT, suivi mensuel. Pour importateurs, avant le 30/12/2026.">
+<link rel="canonical" href="https://sansdeforestation.fr/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Sans Déforestation">
+<meta property="og:title" content="Mise en conformité EUDR à prix fixe | Sans Déforestation">
+<meta property="og:description" content="Règlement déforestation (EUDR) : diagnostic gratuit sous 3 jours, mise en conformité à 1 900 € HT, suivi mensuel. Pour importateurs, avant le 30/12/2026.">
+<meta property="og:url" content="https://sansdeforestation.fr/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#EDE5D2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sable:#EDE5D2;--sable-d:#E3D8BF;--papier:#FBF8F0;--trait:#CDBF9E;
+    --vert:#1E4A34;--vert-f:#14321F;--vert-m:#3C6B50;--vert-l:#D6E2D4;
+    --ocre:#B8732C;--ocre-t:#8A4B12;--ocre-l:#F2DDC1;
+    --encre:#1C2620;--soft:#4A544C;--on-vert:#F3EEDF;--on-vert-soft:#C9D3C4;
+    --slab:"Zilla Slab",Rockwell,"Roboto Slab","DejaVu Serif",Georgia,serif;
+    --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --code:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--sable);color:var(--encre);font-family:var(--sans);font-size:17.5px;line-height:1.6;overflow-wrap:break-word}
+  a{color:var(--vert);text-decoration-color:var(--ocre);text-decoration-thickness:2px;text-underline-offset:3px}
+  a:hover{color:var(--ocre-t)}
+  :focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
+  img,svg{max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--slab);color:var(--vert-f);line-height:1.12;font-weight:700;margin-top:0}
+  h1{font-size:clamp(32px,3.9vw,46px);margin-bottom:20px}
+  h2{font-size:clamp(27px,3vw,36px);margin-bottom:14px}
+  h3{font-size:21px;margin-bottom:8px;font-weight:600;line-height:1.2}
+  p{margin:0 0 14px}
+  ul,ol{padding-left:22px;margin:0 0 14px}
+  li{margin-bottom:6px}
+  strong{font-weight:700}
+  .sub{color:var(--soft);max-width:68ch;font-size:18px}
+  .fine{font-size:14.5px;color:var(--soft)}
+
+  header.site{background:var(--sable);border-bottom:1px solid var(--trait)}
+  header.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 28px;padding-top:14px;padding-bottom:14px}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--slab);font-weight:700;font-size:25px;color:var(--vert-f);text-decoration:none;line-height:1}
+  .brand svg{width:34px;height:34px;flex:none}
+  .brand:hover{color:var(--vert-f)}
+  nav.mainnav{display:flex;flex-wrap:wrap;gap:2px 24px}
+  nav.mainnav a{text-decoration:none;font-weight:600;font-size:16px;color:var(--encre);padding:7px 0 4px;border-bottom:3px solid transparent}
+  nav.mainnav a:hover{border-bottom-color:var(--trait);color:var(--encre)}
+  nav.mainnav a[aria-current="page"]{border-bottom-color:var(--ocre);color:var(--vert-f)}
+
+  .btn{display:inline-block;background:var(--vert);color:var(--papier);border:2px solid var(--vert);padding:12px 22px;border-radius:4px;font-weight:700;font-size:16.5px;text-decoration:none;line-height:1.3;text-align:center;cursor:pointer;font-family:var(--sans)}
+  .btn:hover{background:var(--vert-f);border-color:var(--vert-f);color:var(--papier)}
+  .btn.ghost{background:transparent;color:var(--vert)}
+  .btn.ghost:hover{background:var(--vert-l);color:var(--vert-f)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px}
+
+  .hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:48px;align-items:center;padding:56px 0 64px}
+  .hero .lede{font-size:19px;max-width:60ch}
+  .hero .note{font-size:15px;color:var(--soft);margin-top:6px}
+  .map{margin:0}
+  .map svg{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 1px 0 var(--trait),0 18px 40px -24px rgba(20,50,31,.45)}
+  .map figcaption{font-size:14.5px;color:var(--soft);margin-top:10px}
+
+  .band{padding:68px 0}
+  .band.papier{background:var(--papier);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+  .band.vert{background:var(--vert-f);color:var(--on-vert)}
+  .band.vert h2,.band.vert h3{color:var(--on-vert)}
+  .band.vert a{color:var(--on-vert)}
+  .band.vert .sub{color:var(--on-vert-soft)}
+
+  /* Calendrier : vraie séquence datée */
+  ol.timeline{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;position:relative}
+  ol.timeline li{position:relative;padding:30px 16px 0 0;margin:0}
+  ol.timeline li::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--trait)}
+  ol.timeline li::after{content:"";position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--papier);border:3px solid var(--vert-m)}
+  ol.timeline li.key::after{background:var(--ocre);border-color:var(--ocre-t)}
+  ol.timeline time{display:block;font-family:var(--slab);font-weight:700;font-size:20px;color:var(--vert-f);line-height:1.15;margin-bottom:6px}
+  ol.timeline li.key time{color:var(--ocre-t)}
+  ol.timeline span{display:block;font-size:15px;color:var(--soft);line-height:1.45}
+
+  table.who{width:100%;border-collapse:collapse;margin:26px 0 10px;background:var(--papier);font-size:16px}
+  table.who th,table.who td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--trait)}
+  table.who thead th{font-family:var(--slab);font-size:18px;font-weight:600;color:var(--vert-f);background:var(--sable-d);border-bottom:2px solid var(--vert-m)}
+  table.who td:first-child{font-weight:700;color:var(--vert-f);width:24%}
+  table.who tr.out td{background:#F6EFE2}
+  table.who .tag{display:inline-block;font-size:13.5px;font-weight:700;color:var(--ocre-t);background:var(--ocre-l);padding:1px 8px;border-radius:3px;margin-bottom:4px}
+
+  /* Questionnaire */
+  .quizbox{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;margin-top:28px;align-items:start}
+  .quiz fieldset{border:0;border-top:1px solid var(--trait);margin:0;padding:18px 0 20px}
+  .quiz legend{font-weight:700;font-size:17.5px;padding:0;margin-bottom:10px;color:var(--vert-f);float:left;width:100%}
+  .quiz legend small{display:block;font-weight:400;font-size:14.5px;color:var(--soft);margin-top:2px}
+  .quiz .opts{clear:both;display:flex;flex-wrap:wrap;gap:8px}
+  .quiz label{display:inline-flex;align-items:flex-start;gap:8px;border:1.5px solid var(--trait);background:var(--papier);border-radius:4px;padding:8px 13px;font-size:15.5px;cursor:pointer;line-height:1.35;max-width:100%}
+  .quiz label:hover{border-color:var(--vert-m)}
+  .quiz input{accent-color:var(--vert);margin:3px 0 0;flex:none}
+  .quiz label:has(input:checked){border-color:var(--vert);background:var(--vert-l)}
+  .quiz label:has(input:focus-visible){outline:3px solid var(--ocre);outline-offset:2px}
+  .result{position:sticky;top:20px;background:var(--papier);border:1px solid var(--trait);border-top:5px solid var(--vert-m);padding:22px 24px;border-radius:4px}
+  .result.alert{border-top-color:var(--ocre)}
+  .result h3{font-size:23px}
+  .result .progress{height:6px;background:var(--sable-d);border-radius:3px;overflow:hidden;margin:6px 0 14px}
+  .result .progress i{display:block;height:100%;background:var(--vert-m);width:0;transition:width .25s}
+  .result dl{margin:0 0 12px}
+  .result dt{font-size:14px;color:var(--soft);margin-top:8px}
+  .result dd{margin:0;font-weight:700;color:var(--vert-f)}
+  .result ul{font-size:15.5px}
+
+  /* Tarifs */
+  .tarifs{margin:28px 0 0;border-top:2px solid var(--vert-f)}
+  .tarif{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) 190px;gap:28px;padding:26px 0;border-bottom:1px solid var(--trait);align-items:start}
+  .tarif h3{margin:0}
+  .tarif .who-for{font-size:15px;color:var(--soft);margin:6px 0 0}
+  .tarif ul{margin:0;font-size:16px}
+  .tarif p{font-size:16px}
+  .tarif .prix{font-family:var(--slab);font-weight:700;font-size:30px;color:var(--vert-f);line-height:1.05;text-align:right}
+  .tarif .prix small{display:block;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--soft);margin-top:4px}
+  .tarif.main{background:linear-gradient(90deg,var(--ocre-l),transparent 70%);padding-left:18px;border-left:5px solid var(--ocre)}
+  .tarif .btn{margin-top:12px;font-size:15px;padding:9px 16px}
+
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 36px}
+  ol.steps li{counter-increment:s;margin:0;padding-top:4px;position:relative;padding-left:52px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;border:2px solid var(--ocre);color:var(--ocre-t);font-family:var(--slab);font-weight:700;font-size:20px;display:grid;place-items:center}
+  ol.steps h3{font-size:19px}
+  ol.steps p{font-size:16px;color:var(--soft);margin:0}
+
+  .statut{border:1px solid var(--trait);border-left:5px solid var(--ocre);background:var(--papier);padding:20px 24px;border-radius:0 4px 4px 0;max-width:820px}
+  .statut h3{font-size:20px}
+  .statut p{font-size:16px;margin-bottom:8px}
+  .statut p:last-child{margin-bottom:0}
+
+  .related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:22px 0 0}
+  .related a{display:block;text-decoration:none;color:var(--encre);background:var(--papier);border:1px solid var(--trait);border-top:4px solid var(--vert-m);padding:18px 20px 20px;border-radius:2px}
+  .related a:hover{border-top-color:var(--ocre)}
+  .related strong{display:block;font-family:var(--slab);font-size:20px;font-weight:700;color:var(--vert-f);line-height:1.2;margin-bottom:6px}
+  .related span{font-size:15px;color:var(--soft)}
+
+  .faq{max-width:820px;margin-top:18px}
+  .faq details{border-bottom:1px solid var(--trait);padding:15px 0}
+  .faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px;color:var(--vert-f)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;color:var(--ocre-t)}
+  .faq details[open] summary::after{content:"\2212"}
+  .faq details p{margin:10px 0 0;color:var(--soft)}
+
+  .contact-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:36px;margin-top:24px;align-items:start}
+  form.contact{background:var(--papier);border:1px solid var(--trait);padding:26px;border-radius:4px}
+  form.contact label{display:block;font-weight:600;font-size:15.5px;margin:14px 0 5px}
+  form.contact label:first-of-type{margin-top:0}
+  form.contact input,form.contact select,form.contact textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid #A99A78;border-radius:4px;background:#fff;color:var(--encre)}
+  form.contact .btn{margin-top:18px}
+  .thanks{display:none;background:var(--vert-l);border:1px solid var(--vert-m);padding:22px;border-radius:4px}
+  .booking{border:1px solid var(--trait);padding:22px;border-radius:4px;background:var(--sable-d)}
+  .booking h3{font-size:20px}
+  .booking p{font-size:16px}
+
+  .crumb{font-size:14.5px;color:var(--soft);padding-top:22px}
+  .crumb ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:4px 0}
+  .crumb li{margin:0}
+  .crumb li+li::before{content:"/";margin:0 9px;color:var(--trait)}
+  .crumb a{color:var(--soft)}
+
+  article.guide{max-width:740px;padding:18px 0 40px}
+  article.guide h1{font-size:clamp(32px,4vw,46px)}
+  article.guide .meta{color:var(--soft);font-size:15px;margin-bottom:26px}
+  article.guide h2{font-size:clamp(24px,2.6vw,30px);margin-top:40px}
+  article.guide h3{margin-top:26px}
+  article.guide p,article.guide li{font-size:18px}
+  article.guide .intro{font-size:20px;color:var(--encre)}
+  article.guide table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:16px;background:var(--papier)}
+  article.guide th,article.guide td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--trait)}
+  article.guide thead th{background:var(--sable-d);font-weight:700;color:var(--vert-f)}
+  pre{background:var(--vert-f);color:#E9EFE4;padding:18px 20px;border-radius:4px;overflow-x:auto;font-family:var(--code);font-size:14.5px;line-height:1.5;margin:16px 0 22px}
+  code{font-family:var(--code);font-size:.9em;background:var(--sable-d);padding:1px 5px;border-radius:3px}
+  pre code{background:none;padding:0;font-size:inherit}
+  .cta-box{background:var(--vert-f);color:var(--on-vert);padding:26px 28px;border-radius:4px;margin:36px 0}
+  .cta-box h2{color:var(--on-vert);margin-top:0;font-size:26px}
+  .cta-box p{font-size:17px}
+  .cta-box .btn{background:var(--papier);color:var(--vert-f);border-color:var(--papier)}
+  .cta-box .btn.ghost{background:transparent;color:var(--on-vert);border-color:var(--on-vert-soft)}
+  .sources{font-size:15.5px;color:var(--soft);border-top:1px solid var(--trait);padding-top:14px;margin-top:30px}
+  .sources li{font-size:15.5px}
+
+  .bloglist{list-style:none;padding:0;margin:26px 0 0;max-width:820px}
+  .bloglist li{border-top:1px solid var(--trait);padding:24px 0;margin:0}
+  .bloglist h2{font-size:26px;margin-bottom:8px}
+  .bloglist h2 a{text-decoration:none;color:var(--vert-f)}
+  .bloglist h2 a:hover{text-decoration:underline;text-decoration-color:var(--ocre)}
+
+  footer.site{background:var(--vert-f);color:var(--on-vert-soft);padding:44px 0 36px;font-size:15px}
+  footer.site .cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:30px}
+  footer.site strong{color:var(--on-vert);font-family:var(--slab);font-size:19px}
+  footer.site a{color:var(--on-vert);text-decoration-color:var(--ocre)}
+  footer.site ul{list-style:none;padding:0;margin:8px 0 0}
+  footer.site li{margin-bottom:6px}
+  footer.site .legal{border-top:1px solid #2C4C38;margin-top:26px;padding-top:16px;font-size:14px}
+
+  @media (max-width:960px){
+    .hero{grid-template-columns:minmax(0,1fr);gap:30px;padding:36px 0 48px}
+    .quizbox,.contact-grid{grid-template-columns:minmax(0,1fr)}
+    .result{position:static}
+    ol.timeline{grid-template-columns:minmax(0,1fr);gap:0;margin-left:4px}
+    ol.timeline li{padding:0 0 20px 32px}
+    ol.timeline li::before{top:10px;bottom:-10px;left:6px;right:auto;width:2px;height:auto}
+    ol.timeline li:last-child::before{display:none}
+    ol.timeline li::after{top:4px}
+    ol.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .tarif{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:14px 24px}
+    .tarif .prix{grid-column:1;grid-row:2;text-align:left}
+    .related{grid-template-columns:minmax(0,1fr)}
+    footer.site .cols{grid-template-columns:minmax(0,1fr)}
+  }
+  @media (max-width:640px){
+    body{font-size:17px}
+    .wrap{padding:0 16px}
+    header.site .wrap{gap:8px 18px}
+    nav.mainnav{gap:2px 14px}
+    nav.mainnav a{font-size:15px}
+    .band{padding:48px 0}
+    .actions .btn{width:100%}
+    ol.steps{grid-template-columns:minmax(0,1fr)}
+    .tarif{grid-template-columns:minmax(0,1fr);gap:10px}
+    .tarif .prix{grid-row:auto}
+    .tarif.main{padding-left:14px}
+    form.contact{padding:18px}
+    table.who thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    table.who tr{display:block;border-bottom:1px solid var(--trait);padding:8px 0}
+    table.who td{display:block;border:0;padding:4px 14px;width:auto!important}
+    table.who td::before{content:attr(data-label);display:block;font-size:13px;font-weight:600;color:var(--soft)}
+    article.guide p,article.guide li{font-size:17px}
+    article.guide table{display:block;overflow-x:auto}
+    .cta-box{padding:22px 18px}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://sansdeforestation.fr/#org", "name": "Sans Déforestation", "url": "https://sansdeforestation.fr/", "logo": "https://sansdeforestation.fr/favicon.svg", "founder": {"@type": "Person", "name": "Amine", "jobTitle": "Ingénieur indépendant, données et systèmes d'information"}, "areaServed": [{"@type": "Country", "name": "France"}, {"@type": "Country", "name": "Côte d'Ivoire"}, {"@type": "Country", "name": "Cameroun"}, {"@type": "Country", "name": "Gabon"}, {"@type": "Country", "name": "République du Congo"}]}, {"@type": "WebSite", "@id": "https://sansdeforestation.fr/#site", "url": "https://sansdeforestation.fr/", "name": "Sans Déforestation", "inLanguage": "fr-FR", "publisher": {"@id": "https://sansdeforestation.fr/#org"}}, {"@type": "WebPage", "@id": "https://sansdeforestation.fr/", "url": "https://sansdeforestation.fr/", "name": "Mise en conformité EUDR à prix fixe | Sans Déforestation", "description": "Règlement déforestation (EUDR) : diagnostic gratuit sous 3 jours, mise en conformité à 1 900 € HT, suivi mensuel. Pour importateurs, avant le 30/12/2026.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://sansdeforestation.fr/#site"}, "about": {"@id": "https://sansdeforestation.fr/#service"}, "dateModified": "2026-11-04"}, {"@type": "Service", "@id": "https://sansdeforestation.fr/#service", "name": "Mise en conformité avec le règlement européen sur la déforestation (EUDR)", "serviceType": "Conformité réglementaire EUDR", "provider": {"@id": "https://sansdeforestation.fr/#org"}, "areaServed": [{"@type": "Country", "name": "France"}, {"@type": "Country", "name": "Côte d'Ivoire"}, {"@type": "Country", "name": "Cameroun"}, {"@type": "Country", "name": "Gabon"}, {"@type": "Country", "name": "République du Congo"}], "url": "https://sansdeforestation.fr/", "offers": [{"@type": "Offer", "name": "Diagnostic écrit gratuit", "description": "Produits et codes NC concernés, statut (opérateur, aval, négociant, PME) et actions à mener avant le 30 décembre 2026, sous 3 jours ouvrés", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "0", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Mise en conformité EUDR", "description": "Cartographie des fournisseurs, collecte et contrôle des géolocalisations, évaluation et atténuation du risque, procédure de diligence écrite, inscription dans TRACES, premières déclarations", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "1900", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "1900", "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Suivi mensuel", "description": "Dépôt des déclarations de diligence raisonnée et mise à jour du dispositif", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/#contact", "price": "390", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "390", "priceCurrency": "EUR", "valueAddedTaxIncluded": false, "unitText": "mois", "billingDuration": "P1M"}}, {"@type": "Offer", "name": "Pack géolocalisation pour coopératives et exportateurs", "description": "Collecte terrain par formulaire mobile, nettoyage des polygones, fichier GeoJSON prêt pour l'acheteur. Sur devis", "priceCurrency": "EUR", "url": "https://sansdeforestation.fr/exportateurs/#contact"}]}, {"@type": "FAQPage", "@id": "https://sansdeforestation.fr/#faq", "mainEntity": [{"@type": "Question", "name": "J'achète mes fèves ou ma couverture à un importateur français : suis-je concerné ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, mais beaucoup moins qu'avant la révision de fin 2025. Si votre fournisseur a déjà mis le produit sur le marché européen avec une déclaration de diligence raisonnée, vous êtes opérateur en aval ou négociant : vous ne déposez pas de déclaration. Vous devez en revanche identifier vos fournisseurs et vos clients, conserver ces informations cinq ans et, si vous êtes le premier acheteur après l'importateur, conserver le numéro de référence de sa déclaration. Hors PME, vous devez aussi vous enregistrer dans le système d'information."}}, {"@type": "Question", "name": "Qu'est-ce qu'une déclaration de diligence raisonnée ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est la déclaration que l'opérateur dépose dans le système d'information de l'Union (TRACES) avant de mettre un produit sur le marché ou de l'exporter. Il y atteste que le produit est « zéro déforestation » (pas de déforestation après le 31 décembre 2020), qu'il a été produit légalement, et il y joint notamment la géolocalisation des parcelles. On parle aussi de « diligence raisonnable » ; le texte français du règlement dit « raisonnée ». Le système renvoie un numéro de référence, à reporter dans la déclaration en douane à l'import."}}, {"@type": "Question", "name": "Le cuir est-il encore concerné ?", "acceptedAnswer": {"@type": "Answer", "text": "Les cuirs et peaux de bovins (positions 4101, 4104 et 4107) ont été retirés de l'annexe I par le règlement délégué (UE) 2026/2102, en vigueur depuis le 18 septembre 2026. Un tanneur ou un maroquinier qui ne travaille que le cuir n'est donc en principe plus concerné. La viande bovine et les bovins vivants restent couverts, et la Commission pourra réexaminer la question lors des révisions du règlement."}}, {"@type": "Question", "name": "Que risque une entreprise qui ne se conforme pas ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque État membre fixe ses sanctions, dans le cadre de l'article 25 du règlement : amendes dont le maximum doit atteindre au moins 4 % du chiffre d'affaires annuel réalisé dans l'Union pour une personne morale, confiscation des produits et des recettes, exclusion temporaire des marchés publics et des financements publics jusqu'à douze mois. À l'import, une marchandise sans numéro de déclaration ne peut pas être mise en libre pratique."}}, {"@type": "Question", "name": "Une certification (Rainforest Alliance, FSC, RSPO…) suffit-elle ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Une certification peut alimenter l'évaluation du risque, mais elle ne remplace pas la diligence raisonnée : l'opérateur reste responsable de la déclaration et doit disposer lui-même des géolocalisations et des preuves de légalité."}}, {"@type": "Question", "name": "Pourquoi un prix fixe, et que se passe-t-il si mon cas est plus gros ?", "acceptedAnswer": {"@type": "Answer", "text": "Le diagnostic gratuit établit le périmètre : nombre de produits, de codes NC, de fournisseurs et de pays d'origine. Si votre situation entre dans la mise en conformité à 1 900 € HT, le prix ne bouge plus. Si elle la dépasse nettement (des dizaines de fournisseurs directs, plusieurs filières), vous recevez un prix ferme par écrit avant de vous engager."}}]}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="10" fill="#1E4A34"/><path d="M13 40 26 15 47 21 52 42 30 51Z" fill="#E7B47A" stroke="#FBF8F0" stroke-width="3" stroke-linejoin="round"/><circle cx="31" cy="33" r="5.5" fill="#1E4A34"/></svg>Sans Déforestation</a>
+  <nav class="mainnav" aria-label="Navigation principale"><a href="/" aria-current="page">Importateurs</a><a href="/exportateurs/">Exportateurs</a><a href="/blog/">Guides</a><a href="#contact">Contact</a></nav>
+</div></header>
+<main>
+<div class="wrap">
+<section class="hero">
+<div>
+<h1>Règlement déforestation&nbsp;: soyez en règle avant le 30&nbsp;décembre&nbsp;2026</h1>
+<p class="lede">À partir de cette date, le cacao, le café, le bois, le soja, l'huile de palme, le caoutchouc, la viande bovine et leurs dérivés n'entrent sur le marché européen qu'avec une déclaration de diligence raisonnée et la géolocalisation de chaque parcelle d'origine. J'établis votre statut, je collecte et contrôle les géolocalisations de vos fournisseurs, puis je dépose avec vous vos premières déclarations. À prix fixe.</p>
+<div class="actions"><a class="btn" href="#contact">Demander le diagnostic gratuit</a><a class="btn ghost" href="#contact" data-booking>Prendre rendez-vous (30 min)</a></div>
+<p class="note">Diagnostic écrit sous 3 jours ouvrés, gratuit et sans engagement. Pour les importateurs, négociants, torréfacteurs, chocolatiers, marchands de bois et de meubles.</p>
+</div>
+<figure class="map"><svg viewBox="0 0 560 480" role="img" aria-labelledby="mapt mapd" focusable="false" font-family="Public Sans, system-ui, sans-serif">
+<title id="mapt">Exemple illustratif d'un lot de cacao et de ses parcelles d'origine</title>
+<desc id="mapd">Carte stylisée&nbsp;: une parcelle A de 6,2 hectares décrite par un polygone, deux parcelles B et C de moins de 4 hectares décrites par un point, et une parcelle D défrichée après le 31&nbsp;décembre&nbsp;2020, exclue du lot.</desc>
+<defs>
+<pattern id="forest" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="10" height="10" fill="#D6E2D4"/><line x1="0" y1="0" x2="0" y2="10" stroke="#9DB79F" stroke-width="3"/></pattern>
+<pattern id="cut" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="8" height="8" fill="#F6EBDD"/><line x1="0" y1="0" x2="0" y2="8" stroke="#D2A77A" stroke-width="2"/></pattern>
+</defs>
+<rect x="0" y="0" width="560" height="480" fill="#FBF8F0"/>
+<g fill="none" stroke="#DCCFB1" stroke-width="1.4">
+<path d="M-10 120 C80 90 150 130 240 104 S420 60 570 92"/>
+<path d="M-10 172 C90 140 170 190 260 160 S430 120 570 150"/>
+<path d="M-10 392 C70 372 160 404 250 384 S420 352 570 380"/>
+<path d="M-10 436 C90 420 180 448 270 430 S440 404 570 424"/>
+</g>
+<path d="M300 40 C360 30 450 36 560 44 L560 236 C500 244 470 214 430 222 C392 230 360 206 338 178 C318 152 296 120 300 40Z" fill="url(#forest)" stroke="#3C6B50" stroke-width="1.5"/>
+<path d="M-10 262 C40 250 70 214 64 170 C58 130 92 96 150 82" fill="none" stroke="#A8C2BA" stroke-width="7" stroke-linecap="round"/>
+<g font-size="12.5" fill="#6B6A55">
+<text x="18" y="22">5°21′ N</text><text x="18" y="470">5°20′ N</text><text x="476" y="22" text-anchor="start">4°01′ O</text>
+</g>
+<text x="330" y="64" font-size="15" font-weight="700" fill="#14321F">Forêt au 31&nbsp;décembre&nbsp;2020</text>
+<path d="M392 104 L470 96 L486 160 L410 176Z" fill="url(#cut)" stroke="#8A4B12" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="404" y="138" font-size="17" font-weight="700" fill="#8A4B12">D</text>
+<g>
+<rect x="352" y="186" width="196" height="44" rx="3" fill="#FBF8F0" stroke="#D2A77A"/>
+<text x="362" y="204" font-size="14" font-weight="700" fill="#8A4B12">D&nbsp;: défrichée en 2022</text>
+<text x="362" y="222" font-size="14" fill="#4A544C">exclue du lot</text>
+</g>
+<path d="M96 262 L196 222 L282 252 L270 338 L168 356 L108 318Z" fill="#F2DDC1" stroke="#8A4B12" stroke-width="2.5" stroke-linejoin="round"/>
+<g fill="#8A4B12"><circle cx="96" cy="262" r="4.5"/><circle cx="196" cy="222" r="4.5"/><circle cx="282" cy="252" r="4.5"/><circle cx="270" cy="338" r="4.5"/><circle cx="168" cy="356" r="4.5"/><circle cx="108" cy="318" r="4.5"/></g>
+<text x="170" y="286" font-size="20" font-weight="700" fill="#8A4B12" text-anchor="middle">A</text>
+<text x="170" y="308" font-size="14.5" fill="#1C2620" text-anchor="middle">6,2 ha&nbsp;: polygone</text>
+<g><circle cx="364" cy="300" r="11" fill="none" stroke="#1E4A34" stroke-width="2.5"/><circle cx="364" cy="300" r="4" fill="#1E4A34"/>
+<text x="384" y="296" font-size="15" font-weight="700" fill="#14321F">B&nbsp;: 1,8 ha</text><text x="384" y="314" font-size="14" fill="#4A544C">un point suffit</text></g>
+<g><circle cx="330" cy="374" r="11" fill="none" stroke="#1E4A34" stroke-width="2.5"/><circle cx="330" cy="374" r="4" fill="#1E4A34"/>
+<text x="350" y="370" font-size="15" font-weight="700" fill="#14321F">C&nbsp;: 2,5 ha</text><text x="350" y="388" font-size="14" fill="#4A544C">un point suffit</text></g>
+<g font-size="13.5" fill="#4A544C">
+<line x1="196" y1="222" x2="150" y2="150" stroke="#8A4B12" stroke-width="1.2"/>
+<rect x="24" y="118" width="214" height="34" rx="3" fill="#FBF8F0" stroke="#D2A77A"/>
+<text x="34" y="140" fill="#1C2620">5,348217 N  4,012034 O</text>
+</g>
+<rect x="0" y="420" width="560" height="60" fill="#14321F"/>
+<text x="24" y="446" font-size="15" font-weight="700" fill="#F3EEDF">Lot illustratif&nbsp;: 3 parcelles retenues sur 4</text>
+<text x="24" y="467" font-size="14" fill="#C9D3C4">Coordonnées à 6 décimales, fichier GeoJSON joint à la déclaration</text>
+</svg>
+<figcaption>Ce que le règlement demande, sur un exemple illustratif&nbsp;: chaque parcelle est localisée, et celles défrichées après 2020 sont écartées du lot.</figcaption></figure>
+</section>
+</div>
+
+<section class="band papier" id="calendrier"><div class="wrap">
+<h2>Le calendrier après la révision de 2025</h2>
+<p class="sub">Le règlement (UE) 2023/1115 a été reporté et simplifié par le <a href="https://eur-lex.europa.eu/eli/reg/2025/2650/oj">règlement (UE) 2025/2650</a>, puis son annexe I a été révisée en septembre&nbsp;2026. Les dates ci-dessous sont celles des textes publiés au Journal officiel.</p>
+<ol class="timeline">
+<li><time datetime="2025-12-23">23&nbsp;déc.&nbsp;2025</time><span>Publication du règlement (UE) 2025/2650&nbsp;: report d'un an et simplification</span></li>
+<li><time datetime="2026-06">Fin juin&nbsp;2026</time><span>Réouverture du système d'information TRACES aux déclarations</span></li>
+<li><time datetime="2026-09-18">18&nbsp;sept.&nbsp;2026</time><span>Annexe I révisée (règlement délégué 2026/2102)&nbsp;: le cuir sort du champ</span></li>
+<li class="key"><time datetime="2026-12-30">30&nbsp;déc.&nbsp;2026</time><span>Application aux moyennes et grandes entreprises, et au bois des plus petites</span></li>
+<li><time datetime="2027-06-30">30&nbsp;juin&nbsp;2027</time><span>Application aux micro et petites entreprises</span></li>
+<li><time datetime="2027-12-30">30&nbsp;déc.&nbsp;2027</time><span>Entrée des nouveaux produits&nbsp;: café soluble, dérivés du palmier</span></li>
+</ol>
+</div></section>
+
+<section class="band" id="concernes"><div class="wrap">
+<h2>Qui est concerné, métier par métier</h2>
+<p class="sub">Le règlement vise sept produits de base (bovins, cacao, café, palmier à huile, caoutchouc, soja, bois) et les produits dérivés listés, code par code, à l'annexe I. Votre statut dépend surtout d'une question&nbsp;: êtes-vous le premier à mettre le produit sur le marché européen&nbsp;?</p>
+<table class="who"><thead><tr><th scope="col">Votre métier</th><th scope="col">Produits concernés (codes indicatifs)</th><th scope="col">Statut le plus fréquent</th></tr></thead><tbody><tr><td data-label="Votre métier">Importateur ou négociant en cacao</td><td data-label="Produits concernés">Fèves, coques, pâte, beurre et poudre (1801 à 1805), chocolat (1806)</td><td data-label="Statut le plus fréquent">Opérateur si vous importez&nbsp;; négociant si vous achetez à un importateur européen</td></tr><tr><td data-label="Votre métier">Torréfacteur</td><td data-label="Produits concernés">Café vert ou torréfié (0901). Le café soluble (2101 11) entrera dans le champ le 30&nbsp;décembre&nbsp;2027</td><td data-label="Statut le plus fréquent">Opérateur si vous importez votre café vert&nbsp;; opérateur en aval si vous l'achetez dans l'UE</td></tr><tr><td data-label="Votre métier">Chocolatier</td><td data-label="Produits concernés">Chocolat et préparations contenant du cacao (1806)</td><td data-label="Statut le plus fréquent">Le plus souvent opérateur en aval&nbsp;: la couverture vient d'un fournisseur européen. Opérateur si vous importez en direct</td></tr><tr><td data-label="Votre métier">Marchand de bois, scierie, négoce</td><td data-label="Produits concernés">Bois brut, sciages, panneaux, contreplaqués (chapitre 44), pâte et papier (chapitres 47 et 48)</td><td data-label="Statut le plus fréquent">Opérateur à l'import ou à la première mise sur le marché d'un bois récolté dans l'UE&nbsp;; négociant pour la revente</td></tr><tr><td data-label="Votre métier">Fabricant ou distributeur de meubles</td><td data-label="Produits concernés">Meubles en bois (9403), certains sièges (9401), constructions préfabriquées en bois (9406)</td><td data-label="Statut le plus fréquent">Opérateur si vous importez des meubles finis&nbsp;; opérateur en aval si vous fabriquez avec du bois acheté dans l'UE</td></tr><tr><td data-label="Votre métier">Industrie, cosmétique, alimentation animale</td><td data-label="Produits concernés">Huile de palme et dérivés, soja et tourteaux, caoutchouc naturel</td><td data-label="Statut le plus fréquent">Selon que vous importez ou achetez dans l'UE&nbsp;; plusieurs dérivés du palmier entrent dans le champ le 30&nbsp;décembre&nbsp;2027</td></tr><tr class="out"><td data-label="Votre métier">Tanneur, maroquinier</td><td data-label="Produits concernés">Cuirs et peaux de bovins (4101, 4104, 4107)</td><td data-label="Statut le plus fréquent"><span class="tag">Sorti du champ</span><br>Retirés de l'annexe I depuis le 18&nbsp;septembre&nbsp;2026&nbsp;: en principe plus concernés pour le cuir. La viande bovine reste couverte</td></tr></tbody></table>
+<p class="fine">Codes NC donnés à titre indicatif&nbsp;: le diagnostic gratuit vérifie chacun de vos codes contre l'annexe I en vigueur. Les produits fabriqués avant le 29&nbsp;juin&nbsp;2023 restent hors champ.</p>
+</div></section>
+
+<section class="band papier" id="questionnaire"><div class="wrap">
+<h2>Suis-je concerné&nbsp;? Six questions</h2>
+<p class="sub">Le résultat s'affiche au fil des réponses. Rien n'est envoyé tant que vous ne remplissez pas le formulaire de contact&nbsp;; si vous le faites, votre résultat y est joint.</p>
+<div class="quizbox">
+<form class="quiz" id="quiz" onsubmit="return false">
+<fieldset><legend>Quels produits achetez-vous, transformez-vous ou vendez-vous&nbsp;?<small>Choisissez la réponse la plus proche de votre activité principale.</small></legend><div class="opts"><label><input type="radio" name="q1" value="prod">Cacao, café, soja, huile de palme, caoutchouc ou viande bovine</label><label><input type="radio" name="q1" value="bois">Bois, papier ou meubles en bois</label><label><input type="radio" name="q1" value="cuir">Uniquement du cuir ou des peaux de bovins</label><label><input type="radio" name="q1" value="aucun">Aucun de ces produits</label><label><input type="radio" name="q1" value="nsp">Je ne sais pas</label></div></fieldset>
+<fieldset><legend>Comment vous procurez-vous ces produits&nbsp;?<small>C'est ce qui décide qui dépose la déclaration.</small></legend><div class="opts"><label><input type="radio" name="q2" value="import">J'importe moi-même depuis un pays hors UE</label><label><input type="radio" name="q2" value="prod">Je les produis ou les récolte dans l'UE</label><label><input type="radio" name="q2" value="ue">Je les achète à un fournisseur établi dans l'UE</label><label><input type="radio" name="q2" value="mixte">J'importe une partie et j'achète le reste dans l'UE</label></div></fieldset>
+<fieldset><legend>Quelle est la taille de votre entreprise&nbsp;?<small>Micro ou petite&nbsp;: moins de 50 salariés et sous les seuils européens de bilan ou de chiffre d'affaires.</small></legend><div class="opts"><label><input type="radio" name="q3" value="pe">Micro ou petite entreprise</label><label><input type="radio" name="q3" value="ge">Moyenne ou grande entreprise</label><label><input type="radio" name="q3" value="nsp">Je ne sais pas</label></div></fieldset>
+<fieldset><legend>D'où viennent principalement vos produits&nbsp;?<small>Classement des pays publié par la Commission en mai&nbsp;2025.</small></legend><div class="opts"><label><input type="radio" name="q4" value="std">Pays à risque standard (Côte d'Ivoire, Cameroun, Brésil, Indonésie…)</label><label><input type="radio" name="q4" value="faible">Pays à faible risque (Gabon, République du Congo, Ghana, pays de l'UE…)</label><label><input type="radio" name="q4" value="nsp">Je ne connais pas l'origine exacte</label></div></fieldset>
+<fieldset><legend>Vos fournisseurs vous transmettent-ils la géolocalisation des parcelles&nbsp;?</legend><div class="opts"><label><input type="radio" name="q5" value="oui">Oui, pour toutes les parcelles</label><label><input type="radio" name="q5" value="partiel">Pour une partie seulement</label><label><input type="radio" name="q5" value="non">Non</label><label><input type="radio" name="q5" value="nsp">Je ne sais pas ce qu'il faut demander</label></div></fieldset>
+<fieldset><legend>Êtes-vous inscrit dans le système d'information de l'UE (TRACES)&nbsp;?</legend><div class="opts"><label><input type="radio" name="q6" value="oui">Oui, compte créé et testé</label><label><input type="radio" name="q6" value="non">Non</label><label><input type="radio" name="q6" value="nsp">Je ne sais pas ce que c'est</label></div></fieldset>
+</form>
+<div class="result" id="res" aria-live="polite"></div>
+</div>
+</div></section>
+
+<section class="band" id="tarifs"><div class="wrap">
+<h2>Quatre offres, des prix fixes</h2>
+<p class="sub">Tous les prix sont hors taxes. Vous savez ce que vous payez avant de commencer, et rien n'est facturé sans accord écrit.</p>
+<div class="tarifs">
+<div class="tarif">
+<div><h3>Diagnostic écrit</h3><p class="who-for">Pour savoir où vous en êtes</p></div>
+<div><p>Remis sous 3 jours ouvrés. Il établit&nbsp;:</p><ul><li>quels produits et quels codes NC sont concernés&nbsp;;</li><li>votre statut&nbsp;: opérateur, opérateur en aval, négociant, PME ou non&nbsp;;</li><li>ce qu'il faut faire avant le 30&nbsp;décembre, dans l'ordre.</li></ul></div>
+<div class="prix">Gratuit<small>sans engagement</small><a class="btn ghost" href="#contact">Le demander</a></div>
+</div>
+<div class="tarif main">
+<div><h3>Mise en conformité</h3><p class="who-for">Pour les opérateurs qui importent ou produisent</p></div>
+<div><ul><li>cartographie de vos fournisseurs et de vos flux&nbsp;;</li><li>collecte et contrôle des géolocalisations&nbsp;: fichiers GeoJSON, polygones pour les parcelles de plus de 4 ha, vérification de chaque géométrie&nbsp;;</li><li>évaluation et atténuation du risque, par fournisseur et par pays&nbsp;;</li><li>procédure de diligence raisonnée écrite&nbsp;;</li><li>inscription de votre entreprise dans TRACES&nbsp;;</li><li>dépôt de vos premières déclarations, avec vous.</li></ul></div>
+<div class="prix">1&nbsp;900&nbsp;€ HT<small>prix fixe, une fois</small><a class="btn" href="#contact">Commencer</a></div>
+</div>
+<div class="tarif">
+<div><h3>Suivi mensuel</h3><p class="who-for">Pour ceux qui importent régulièrement</p></div>
+<div><ul><li>dépôt de vos déclarations de diligence raisonnée à chaque lot&nbsp;;</li><li>mise à jour du dispositif&nbsp;: nouveaux fournisseurs, révision de l'annexe I, classement des pays, révision annuelle de la procédure.</li></ul></div>
+<div class="prix">390&nbsp;€ HT<small>par mois</small></div>
+</div>
+<div class="tarif">
+<div><h3>Pack géolocalisation</h3><p class="who-for">Pour les coopératives et exportateurs qui vous fournissent</p></div>
+<div><p>Collecte terrain par formulaire mobile, nettoyage des polygones et fichier prêt pour l'acheteur. Utile si vos fournisseurs n'ont pas encore les données&nbsp;: vous pouvez le leur recommander, ou le financer.</p><p><a href="/exportateurs/">Le détail pour les coopératives et exportateurs</a></p></div>
+<div class="prix">Sur devis<small>selon le nombre de parcelles</small></div>
+</div>
+</div>
+</div></section>
+
+<section class="band papier" id="methode"><div class="wrap">
+<h2>Comment se déroule la mise en conformité</h2>
+<p class="sub">Six étapes, dans cet ordre, menées avec la personne qui gère vos achats. Comptez quelques semaines&nbsp;: le délai dépend surtout de la vitesse à laquelle vos fournisseurs transmettent leurs données.</p>
+<ol class="steps">
+<li><h3>Cartographier</h3><p>Produits, codes NC, fournisseurs, pays et volumes&nbsp;: la liste de ce qui doit être déclaré, et par qui.</p></li>
+<li><h3>Collecter</h3><p>Une demande type envoyée à chaque fournisseur, avec le modèle de fichier attendu et les relances.</p></li>
+<li><h3>Contrôler</h3><p>Chaque géométrie est vérifiée&nbsp;: format, fermeture, croisements, doublons, surfaces, parcelles hors du pays déclaré.</p></li>
+<li><h3>Évaluer le risque</h3><p>Pays, fournisseur, preuves de légalité, risque de mélange&nbsp;; puis les mesures d'atténuation, documentées.</p></li>
+<li><h3>Écrire la procédure</h3><p>Votre procédure de diligence raisonnée&nbsp;: qui fait quoi, avec quelles preuves, à quelle fréquence.</p></li>
+<li><h3>Déclarer</h3><p>Inscription dans TRACES, puis dépôt des premières déclarations avec vous, et report du numéro en douane.</p></li>
+</ol>
+</div></section>
+
+<section class="band" id="statut"><div class="wrap">
+<div class="statut">
+<h3>Ce que Sans Déforestation est, et ce qu'il n'est pas</h3>
+<p>Sans Déforestation est un service d'accompagnement opérationnel conduit par Amine, ingénieur indépendant (données et systèmes d'information). Je ne suis ni avocat, ni organisme de certification, ni autorité compétente, ni partenaire de la Commission européenne.</p>
+<p>Il n'existe pas de «&nbsp;certificat EUDR&nbsp;» et je n'en délivre pas. La déclaration de diligence raisonnée engage l'opérateur qui la dépose&nbsp;; mon travail consiste à rendre ce dépôt possible et documenté. Pour une question d'interprétation juridique qui vous engage, je vous orienterai vers un avocat.</p>
+</div>
+</div></section>
+
+<section class="band papier" id="guides"><div class="wrap">
+<h2>Les guides</h2>
+<p class="sub">Trois guides sourcés, mis à jour après la révision de l'annexe I de septembre&nbsp;2026.</p>
+<div class="related">
+<a href="/blog/eudr-30-decembre-2026/"><strong>EUDR 2026&nbsp;: ce qui change au 30&nbsp;décembre</strong><span>Dates, simplifications de 2025, produits retirés et ajoutés, sanctions.</span></a>
+<a href="/blog/geolocalisation-parcelles-eudr/"><strong>Géolocalisation des parcelles&nbsp;: format, précision, erreurs fréquentes</strong><span>Point ou polygone, GeoJSON, six décimales, les rejets courants.</span></a>
+<a href="/blog/operateur-negociant-aval-eudr/"><strong>Opérateur, négociant ou aval&nbsp;: qui dépose la déclaration</strong><span>Les rôles après la simplification, et les numéros de référence.</span></a>
+</div>
+</div></section>
+
+<div class="wrap" style="padding:60px 24px 64px">
+<section class="faqwrap" id="faq"><h2>Questions fréquentes</h2><div class="faq">
+<details><summary>J&#x27;achète mes fèves ou ma couverture à un importateur français&nbsp;: suis-je concerné&nbsp;?</summary><p>Oui, mais beaucoup moins qu'avant la révision de fin 2025. Si votre fournisseur a déjà mis le produit sur le marché européen avec une déclaration de diligence raisonnée, vous êtes opérateur en aval ou négociant&nbsp;: vous ne déposez pas de déclaration. Vous devez en revanche identifier vos fournisseurs et vos clients, conserver ces informations cinq ans et, si vous êtes le premier acheteur après l'importateur, conserver le numéro de référence de sa déclaration. Hors PME, vous devez aussi vous enregistrer dans le système d'information.</p></details>
+<details><summary>Qu&#x27;est-ce qu&#x27;une déclaration de diligence raisonnée&nbsp;?</summary><p>C'est la déclaration que l'opérateur dépose dans le système d'information de l'Union (TRACES) avant de mettre un produit sur le marché ou de l'exporter. Il y atteste que le produit est «&nbsp;zéro déforestation&nbsp;» (pas de déforestation après le 31&nbsp;décembre&nbsp;2020), qu'il a été produit légalement, et il y joint notamment la géolocalisation des parcelles. On parle aussi de «&nbsp;diligence raisonnable&nbsp;»&nbsp;; le texte français du règlement dit «&nbsp;raisonnée&nbsp;». Le système renvoie un numéro de référence, à reporter dans la déclaration en douane à l'import.</p></details>
+<details><summary>Le cuir est-il encore concerné&nbsp;?</summary><p>Les cuirs et peaux de bovins (positions 4101, 4104 et 4107) ont été retirés de l'annexe I par le règlement délégué (UE) 2026/2102, en vigueur depuis le 18&nbsp;septembre&nbsp;2026. Un tanneur ou un maroquinier qui ne travaille que le cuir n'est donc en principe plus concerné. La viande bovine et les bovins vivants restent couverts, et la Commission pourra réexaminer la question lors des révisions du règlement.</p></details>
+<details><summary>Que risque une entreprise qui ne se conforme pas&nbsp;?</summary><p>Chaque État membre fixe ses sanctions, dans le cadre de l'article 25 du règlement&nbsp;: amendes dont le maximum doit atteindre au moins 4&nbsp;% du chiffre d'affaires annuel réalisé dans l'Union pour une personne morale, confiscation des produits et des recettes, exclusion temporaire des marchés publics et des financements publics jusqu'à douze mois. À l'import, une marchandise sans numéro de déclaration ne peut pas être mise en libre pratique.</p></details>
+<details><summary>Une certification (Rainforest Alliance, FSC, RSPO…) suffit-elle&nbsp;?</summary><p>Non. Une certification peut alimenter l'évaluation du risque, mais elle ne remplace pas la diligence raisonnée&nbsp;: l'opérateur reste responsable de la déclaration et doit disposer lui-même des géolocalisations et des preuves de légalité.</p></details>
+<details><summary>Pourquoi un prix fixe, et que se passe-t-il si mon cas est plus gros&nbsp;?</summary><p>Le diagnostic gratuit établit le périmètre&nbsp;: nombre de produits, de codes NC, de fournisseurs et de pays d'origine. Si votre situation entre dans la mise en conformité à 1&nbsp;900&nbsp;€ HT, le prix ne bouge plus. Si elle la dépasse nettement (des dizaines de fournisseurs directs, plusieurs filières), vous recevez un prix ferme par écrit avant de vous engager.</p></details>
+</div></section>
+
+</div>
+
+<section class="band papier" id="contact"><div class="wrap">
+<h2>Demander le diagnostic gratuit</h2>
+<p class="sub">Décrivez vos produits et vos fournisseurs&nbsp;: vous recevez sous 3 jours ouvrés un diagnostic écrit avec vos codes NC concernés, votre statut et la liste des actions avant le 30&nbsp;décembre. Si vous avez rempli le questionnaire, votre résultat est joint automatiquement.</p>
+<div class="contact-grid">
+<div>
+<form class="contact" id="f" method="POST" action="https://formspree.io/f/mzeejnkr">
+  <label for="email">E-mail professionnel</label>
+  <input id="email" name="email" type="email" required autocomplete="email">
+  <label for="societe">Entreprise ou organisation</label>
+  <input id="societe" name="entreprise" type="text" required autocomplete="organization">
+  <label for="profil">Vous êtes</label>
+  <select id="profil" name="profil"><option>Importateur ou négociant</option><option>Torréfacteur</option><option>Chocolatier</option><option>Marchand de bois ou de meubles</option><option>Tanneur ou maroquinier</option><option>Industrie (palme, soja, caoutchouc)</option><option>Autre</option></select>
+  <label for="taille">Taille de l'entreprise</label><select id="taille" name="taille"><option>Micro ou petite entreprise</option><option>Moyenne entreprise</option><option>Grande entreprise</option><option>Je ne sais pas</option></select>
+  <label for="msg">Vos produits et votre situation (facultatif)</label>
+  <textarea id="msg" name="message" rows="4" placeholder="Par exemple : fèves de cacao importées de Côte d'Ivoire, 8 conteneurs par an, deux fournisseurs."></textarea>
+  <input type="hidden" name="resultat_questionnaire" id="quizField" value="">
+  <input type="hidden" name="site" value="sansdeforestation.fr">
+  <input type="hidden" name="_subject" value="Demande Sans Déforestation (importateur)">
+  <button class="btn" type="submit">Envoyer ma demande</button>
+  <p class="fine" style="margin-top:12px">Vos informations servent uniquement à répondre à cette demande. Le diagnostic arrive par écrit sous 3 jours ouvrés.</p>
+</form>
+<div class="thanks" id="t" tabindex="-1"><p><strong>Demande envoyée.</strong> Vous recevez un accusé de réception sous un jour ouvré, puis le diagnostic écrit sous 3 jours ouvrés.</p></div>
+</div>
+<aside class="booking">
+  <h3>Plutôt de vive voix&nbsp;?</h3>
+  <p>Trente minutes en visio pour décrire vos produits, vos fournisseurs et vos volumes. Vous repartez avec votre statut probable et les premières actions, sans engagement.</p>
+  <a class="btn" href="#contact" data-booking>Prendre rendez-vous (30 min)</a>
+  <p class="fine" style="margin-top:14px">Signé&nbsp;: Amine.</p>
+</aside>
+</div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>Sans Déforestation</strong>
+<p>Mise en conformité avec le règlement européen sur la déforestation (EUDR, règlement (UE) 2023/1115 modifié), à prix fixe, pour les importateurs et négociants français et pour leurs fournisseurs d'Afrique francophone. Conduit par Amine, ingénieur indépendant (données et systèmes d'information).</p></div>
+<div><strong>Offres</strong>
+<ul><li><a href="/">Importateurs et négociants</a></li><li><a href="/exportateurs/">Coopératives et exportateurs</a></li><li><a href="/#tarifs">Tarifs</a></li><li><a href="/#contact">Diagnostic gratuit</a></li></ul></div>
+<div><strong>Guides</strong>
+<ul><li><a href="/blog/eudr-30-decembre-2026/">EUDR 2026&nbsp;: ce qui change au 30&nbsp;décembre</a></li><li><a href="/blog/geolocalisation-parcelles-eudr/">Géolocalisation des parcelles</a></li><li><a href="/blog/operateur-negociant-aval-eudr/">Opérateur, négociant ou aval</a></li></ul></div>
+</div>
+<p class="legal">Sans Déforestation n'est ni un cabinet d'avocats, ni un organisme de certification, ni une autorité compétente, et n'est affilié ni à la Commission européenne ni à l'administration française. TRACES est le système d'information de la Commission européenne. Tous les prix sont fixes et hors taxes.</p>
+</div></footer>
+<script>
+(function(){
+  var form=document.getElementById('quiz'),res=document.getElementById('res');
+  if(!form)return;
+  var N=6;
+  function v(n){var c=form.querySelector('input[name="'+n+'"]:checked');return c?c.value:null;}
+  function li(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';}
+  function render(){
+    var a={},n=0;for(var i=1;i<=N;i++){a['q'+i]=v('q'+i);if(a['q'+i])n++;}
+    var bar='<div class="progress" aria-hidden="true"><i style="width:'+Math.round(n/N*100)+'%"></i></div>';
+    if(a.q1==='aucun'){res.className='result';res.innerHTML='<h3>Probablement pas concerné</h3>'+bar+'<p>Si aucun de vos produits ne contient de bovins, de cacao, de café, de palmier à huile, de caoutchouc, de soja ou de bois, le règlement ne s\'applique pas à vous.</p><p>Vérifiez tout de même vos codes NC&nbsp;: des produits inattendus figurent à l\'annexe&nbsp;I (glycérol, pneumatiques, papier, emballages vendus comme produits…). Le diagnostic gratuit le fait pour vous.</p>';save('non concerné probable');return;}
+    if(a.q1==='cuir'){res.className='result';res.innerHTML='<h3>Le cuir est sorti du champ</h3>'+bar+'<p>Les cuirs et peaux de bovins (positions 4101, 4104 et 4107) ne figurent plus à l\'annexe&nbsp;I depuis le 18 septembre 2026. Si vous ne travaillez que le cuir, vous n\'êtes en principe plus concerné.</p><p>Restent à vérifier&nbsp;: d\'éventuels autres produits (viande bovine, articles en bois, papier imprimé vendu comme produit).</p>';save('cuir seul : hors champ probable');return;}
+    if(n<N){res.className='result';res.innerHTML='<h3>Votre résultat</h3>'+bar+'<p>Répondez aux '+N+' questions pour voir votre statut probable, votre échéance et vos actions ('+n+' sur '+N+').</p>';return;}
+    var op=(a.q2==='import'||a.q2==='prod'),mix=a.q2==='mixte',aval=a.q2==='ue';
+    var statut=op?'Opérateur : vous déposez la déclaration':(mix?'Opérateur pour ce que vous importez, aval pour le reste':'Opérateur en aval ou négociant : pas de déclaration à déposer');
+    var date;
+    if(a.q3==='ge')date='30 décembre 2026';
+    else if(a.q3==='pe')date=(a.q1==='bois')?'30 décembre 2026 (le bois déjà couvert par l\'ancien règlement bois garde cette date)':'30 juin 2027';
+    else date='30 décembre 2026 ou 30 juin 2027 selon votre taille';
+    var act=[],alert=false;
+    if(op||mix){
+      act.push('Déposer une déclaration de diligence raisonnée dans TRACES avant chaque mise sur le marché, import ou export.');
+      if(a.q2!=='prod')act.push('Reporter le numéro de référence de la déclaration dans chaque déclaration en douane à l\'import.');
+      if(a.q5==='oui')act.push('Contrôler les géolocalisations reçues (format GeoJSON, polygones au-delà de 4&nbsp;ha, fermeture, doublons) avant de les déposer.');
+      else{act.push('Obtenir la géolocalisation de chaque parcelle d\'origine&nbsp;: c\'est le point qui bloque le plus souvent.');alert=true;}
+      if(a.q4==='std')act.push('Évaluer et atténuer le risque, fournisseur par fournisseur, et le documenter.');
+      else if(a.q4==='faible')act.push('Diligence simplifiée possible (pas d\'évaluation complète du risque), mais géolocalisations et preuves de légalité restent dues, et il faut écarter le risque de mélange avec d\'autres origines.');
+      else{act.push('Remonter jusqu\'à l\'origine exacte&nbsp;: sans pays ni parcelle, aucune déclaration n\'est possible.');alert=true;}
+      act.push('Rédiger votre procédure de diligence et la revoir au moins une fois par an.');
+    }
+    if(aval||mix){
+      act.push('Identifier vos fournisseurs et vos clients et conserver ces informations cinq ans.');
+      act.push('Collecter le numéro de référence de la déclaration de votre fournisseur, si vous êtes le premier acheteur après lui.');
+      if(a.q3!=='pe')act.push('Vous enregistrer dans le système d\'information (obligatoire hors PME).');
+    }
+    if(a.q6!=='oui'&&(op||mix||a.q3!=='pe'))act.push('Créer et tester votre compte dans TRACES avant décembre&nbsp;: comptez quelques jours pour les accès.');
+    if(a.q1==='nsp')act.push('Vérifier vos codes NC un par un contre l\'annexe&nbsp;I révisée en septembre 2026.');
+    var html='<h3>Votre statut probable</h3>'+bar+'<dl><dt>Statut</dt><dd>'+statut+'</dd><dt>Échéance</dt><dd>'+date+'</dd></dl><p><strong>À faire&nbsp;:</strong></p>'+li(act)+'<p class="fine">Résultat indicatif, établi à partir de six réponses. Le diagnostic gratuit le confirme code NC par code NC.</p><p><a class="btn" href="#contact">Recevoir le diagnostic écrit</a></p>';
+    res.className='result'+(alert?' alert':'');res.innerHTML=html;
+    save(statut+' ; échéance '+date+' ; réponses '+[a.q1,a.q2,a.q3,a.q4,a.q5,a.q6].join('/'));
+  }
+  function save(s){var f=document.getElementById('quizField');if(f)f.value=s;}
+  form.addEventListener('change',render);
+  render();
+})();
+
+(function(){
+  var f=document.getElementById('f'),t=document.getElementById('t');
+  if(!f)return;
+  f.addEventListener('submit',function(e){e.preventDefault();
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
+    .then(function(r){if(r.ok){f.style.display='none';t.style.display='block';t.focus();}else{alert("La demande n'est pas partie. Réessayez dans quelques minutes.");}})
+    .catch(function(){alert("La demande n'est pas partie. Vérifiez votre connexion et réessayez.");});
+  });
+})();
+</script>
+</body>
+</html>
