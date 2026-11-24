@@ -256,7 +256,7 @@
 <div>
 <h1>Règlement déforestation&nbsp;: soyez en règle avant le 30&nbsp;décembre&nbsp;2026</h1>
 <p class="lede">À partir de cette date, le cacao, le café, le bois, le soja, l'huile de palme, le caoutchouc, la viande bovine et leurs dérivés n'entrent sur le marché européen qu'avec une déclaration de diligence raisonnée et la géolocalisation de chaque parcelle d'origine. J'établis votre statut, je collecte et contrôle les géolocalisations de vos fournisseurs, puis je dépose avec vous vos premières déclarations. À prix fixe.</p>
-<div class="actions"><a class="btn" href="#contact">Demander le diagnostic gratuit</a><a class="btn ghost" href="#contact" data-booking>Prendre rendez-vous (30 min)</a></div>
+<div class="actions"><a class="btn" href="#contact">Demander le diagnostic gratuit</a><a class="btn ghost" href="tel:+33759715029">Appeler : 07 59 71 50 29</a></div>
 <p class="note">Diagnostic écrit sous 3 jours ouvrés, gratuit et sans engagement. Pour les importateurs, négociants, torréfacteurs, chocolatiers, marchands de bois et de meubles.</p>
 </div>
 <figure class="map"><svg viewBox="0 0 560 480" role="img" aria-labelledby="mapt mapd" focusable="false" font-family="Public Sans, system-ui, sans-serif">
@@ -430,6 +430,8 @@
   <textarea id="msg" name="message" rows="4" placeholder="Par exemple : fèves de cacao importées de Côte d'Ivoire, 8 conteneurs par an, deux fournisseurs."></textarea>
   <input type="hidden" name="resultat_questionnaire" id="quizField" value="">
   <input type="hidden" name="site" value="sansdeforestation.fr">
+  <input type="hidden" name="gclid" id="gclidField" value="">
+  <input type="hidden" name="source" id="srcField" value="">
   <input type="hidden" name="_subject" value="Demande Sans Déforestation (importateur)">
   <button class="btn" type="submit">Envoyer ma demande</button>
   <p class="fine" style="margin-top:12px">Vos informations servent uniquement à répondre à cette demande. Le diagnostic arrive par écrit sous 3 jours ouvrés.</p>
@@ -438,8 +440,10 @@
 </div>
 <aside class="booking">
   <h3>Plutôt de vive voix&nbsp;?</h3>
-  <p>Trente minutes en visio pour décrire vos produits, vos fournisseurs et vos volumes. Vous repartez avec votre statut probable et les premières actions, sans engagement.</p>
-  <a class="btn" href="#contact" data-booking>Prendre rendez-vous (30 min)</a>
+  <p>Appelez ou écrivez sur WhatsApp pour décrire vos produits, vos fournisseurs et vos volumes. Vous repartez avec votre statut probable et les premières actions, sans engagement.</p>
+  <p><a class="btn" href="tel:+33759715029">07 59 71 50 29</a></p>
+  <p><a class="btn ghost" href="https://wa.me/33759715029?text=Bonjour%20Amine%2C%20je%20vous%20contacte%20au%20sujet%20de%20l%27EUDR." rel="noopener">Écrire sur WhatsApp</a></p>
+  <p class="fine">Ou par e-mail : <a href="mailto:amine@sansdeforestation.fr">amine@sansdeforestation.fr</a></p>
   <p class="fine" style="margin-top:14px">Signé&nbsp;: Amine.</p>
 </aside>
 </div>
@@ -455,9 +459,14 @@
 <div><strong>Guides</strong>
 <ul><li><a href="/blog/eudr-30-decembre-2026/">EUDR 2026&nbsp;: ce qui change au 30&nbsp;décembre</a></li><li><a href="/blog/geolocalisation-parcelles-eudr/">Géolocalisation des parcelles</a></li><li><a href="/blog/operateur-negociant-aval-eudr/">Opérateur, négociant ou aval</a></li></ul></div>
 </div>
+<p class="legal"><a href="/mentions-legales/">Mentions légales</a> · <a href="tel:+33759715029">07 59 71 50 29</a> · <a href="mailto:amine@sansdeforestation.fr">amine@sansdeforestation.fr</a></p>
 <p class="legal">Sans Déforestation n'est ni un cabinet d'avocats, ni un organisme de certification, ni une autorité compétente, et n'est affilié ni à la Commission européenne ni à l'administration française. TRACES est le système d'information de la Commission européenne. Tous les prix sont fixes et hors taxes.</p>
 </div></footer>
 <script>
+(function(){try{var q=new URLSearchParams(location.search),k=['gclid','utm_source','utm_medium','utm_campaign','utm_term'],st=sessionStorage,o={};
+k.forEach(function(x){var v=q.get(x);if(v)st.setItem(x,v);o[x]=st.getItem(x)||'';});
+var g=document.getElementById('gclidField'),s=document.getElementById('srcField');if(g)g.value=o.gclid;
+if(s)s.value=[o.utm_source,o.utm_medium,o.utm_campaign,o.utm_term].filter(Boolean).join(' / ')||(o.gclid?'google ads':(document.referrer||'direct'));}catch(e){}})();
 (function(){
   var form=document.getElementById('quiz'),res=document.getElementById('res');
   if(!form)return;
